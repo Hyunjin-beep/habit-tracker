@@ -14,19 +14,39 @@ class App extends Component {
   }
 
   handleIncrement = habit => {
-    const habits = [...this.state.habits]
-    const index = habits.indexOf(habit)
-    habits[index].count++
+    // when using purecomponent, the below codes are just changing data inside state so it wont update
+    // in habit.jsx, the component will take only props which is habit.
+    // function like onIncrement only once created when the class is defined so it cannot make render function be called
+
+    // const habits = [...this.state.habits]
+    // const index = habits.indexOf(habit)
+    // habits[index].count++
+
+    const habits = this.state.habits.map(item => {
+      if (item.id === habit.id) {
+        return { ...item, count: item.count + 1 }
+      }
+
+      return item
+    })
     this.setState(state => ({ habits: habits }))
   }
 
   handleDecrement = habit => {
-    const habits = [...this.state.habits]
-    const index = habits.indexOf(habit)
+    // const habits = [...this.state.habits]
+    // const index = habits.indexOf(habit)
 
-    if (habits[index].count > 0) {
-      habits[index].count--
-    }
+    // if (habits[index].count > 0) {
+    //   habits[index].count--
+    // }
+
+    const habits = this.state.habits.map(item => {
+      if (item.id === habit.id) {
+        return { ...item, count: habit.count > 0 ? habit.count - 1 : 0 }
+      }
+
+      return item
+    })
 
     this.setState({ habits: habits })
   }
@@ -46,6 +66,9 @@ class App extends Component {
 
   handleReset = () => {
     const habits = this.state.habits.map(item => {
+      // if count is 0, dont need to reset
+      // the below code will update all
+      // return { ...item, count: 0 }
       if (item.count !== 0) {
         return { ...item, count: 0 }
       }
@@ -58,7 +81,7 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <div>
         <Navbar
           habits={this.state.habits.filter(item => item.count > 0)}
         ></Navbar>
@@ -70,7 +93,7 @@ class App extends Component {
           onAdd={this.handleAdd}
           onReset={this.handleReset}
         ></Habits>
-      </>
+      </div>
     )
   }
 }

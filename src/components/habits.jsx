@@ -48,7 +48,7 @@ class Habits extends Component {
 
   render() {
     return (
-      <>
+      <div>
         <HabitInputForm onAdd={this.handleAdd}></HabitInputForm>
         <ul className="habits">
           {this.props.habits.map(habit => (
@@ -64,7 +64,7 @@ class Habits extends Component {
         <button className="reset-btn" onClick={this.handleReset}>
           Reset All
         </button>
-      </>
+      </div>
     )
   }
 }

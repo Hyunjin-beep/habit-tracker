@@ -1,16 +1,116 @@
-ul {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+
+  background-color: #2d9b78;
+  padding: 2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.nav-title {
+  font-size: 35px;
+}
+
+.total-count {
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.add-form {
+  margin-bottom: 15px;
+}
+
+.inputForAdd {
+  padding: 5px 15px;
+  margin-right: 15px;
+}
+
+.addHabit {
+  padding: 7px 15px;
+  background-color: #186473;
+  color: #f2f4cc;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.addHabit:hover {
+  opacity: 0.8;
+}
+
+.habits {
   list-style: none;
+  font-size: 30px;
+  margin-bottom: 3.5rem;
 }
 
 .habit {
-  margin: 40px 0px 0px 40px;
-  list-style: none;
+  margin-bottom: 15px;
+  padding: 5px 0px;
 }
 
-.habit span {
-  margin-right: 15px;
+.habit-name {
+  display: inline-block;
+
+  width: 20%;
 }
 
-.habit button {
-  margin-right: 15px;
+.habit-count {
+  display: inline-block;
+  text-align: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 2.5rem;
+  background-color: #5aa656;
+  border-radius: 50%;
+}
+
+.habit-increase,
+.habit-decrease,
+.habit-delete {
+  display: inline-block;
+  width: 10%;
+  font-size: 30px;
+  margin-right: 0.5rem;
+}
+
+.habit-increase,
+.habit-decrease {
+  background-color: #6fb365;
+}
+
+.habit-delete {
+  background-color: #8d764f;
+}
+
+.habit > button:hover {
+  opacity: 0.8;
+}
+
+.reset-btn {
+  background-color: #186473;
+  color: #f2f4cc;
+  padding: 14px 25px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.reset-btn:hover {
+  opacity: 0.8;
 }
