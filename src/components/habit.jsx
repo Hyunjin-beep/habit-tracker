@@ -5,15 +5,15 @@ class Habit extends Component {
   //     count: 0,
   //   }
 
-  handleIncrement = props => {
+  handleIncrement = () => {
     this.props.onIncrement(this.props.habit)
   }
 
-  handleDecrement = props => {
+  handleDecrement = () => {
     this.props.onDecrement(this.props.habit)
   }
 
-  handleDelete = props => {
+  handleDelete = () => {
     this.props.onDelete(this.props.habit)
   }
 
