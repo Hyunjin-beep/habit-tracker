@@ -7,7 +7,7 @@ class Navbar extends Component {
       <nav className="navbar">
         <span className="nav-title">Habit Tracker</span>
         <span className="total-count">
-          You have done {this.props.habits.length} habits!
+          You have done {this.props.habits} habits!
         </span>
       </nav>
     )

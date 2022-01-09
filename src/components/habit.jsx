@@ -1,40 +1,34 @@
-import React, { PureComponent } from 'react'
+import React, { memo } from 'react'
+import Habits from './habits'
 
-class Habit extends PureComponent {
-  //   state = {
-  //     count: 0,
-  //   }
-
-  handleIncrement = () => {
-    this.props.onIncrement(this.props.habit)
+const Habit = memo(({ habit, onIncrement, onDecrement, onDelete }) => {
+  const handleIncrement = () => {
+    onIncrement(habit)
   }
 
-  handleDecrement = () => {
-    this.props.onDecrement(this.props.habit)
+  const handleDecrement = () => {
+    onDecrement(habit)
   }
 
-  handleDelete = () => {
-    this.props.onDelete(this.props.habit)
+  const handleDelete = () => {
+    onDelete(habit)
   }
 
-  render() {
-    const { name, count } = this.props.habit
-    return (
-      <li className="habit">
-        <span className="habit-name">{name}</span>
-        <span className="habit-count">{count}</span>
-        <button className="habit-increase" onClick={this.handleIncrement}>
-          +
-        </button>
-        <button className="habit-decrease" onClick={this.handleDecrement}>
-          -
-        </button>
-        <button className="habit-delete" onClick={this.handleDelete}>
-          x
-        </button>
-      </li>
-    )
-  }
-}
+  return (
+    <li className="habit">
+      <span className="habit-name">{habit.name}</span>
+      <span className="habit-count">{habit.count}</span>
+      <button className="habit-increase" onClick={handleIncrement}>
+        +
+      </button>
+      <button className="habit-decrease" onClick={handleDecrement}>
+        -
+      </button>
+      <button className="habit-delete" onClick={handleDelete}>
+        x
+      </button>
+    </li>
+  )
+})
 
 export default Habit
