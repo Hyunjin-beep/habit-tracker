@@ -2,8 +2,7 @@ import './app.css'
 import Habits from './components/habits'
 import Navbar from './components/navbar'
 
-import React, { useState } from 'react'
-import { useCallback } from 'react/cjs/react.development'
+import React, { useState, useCallback } from 'react'
 
 const App = () => {
   const [habits, setHabits] = useState([
